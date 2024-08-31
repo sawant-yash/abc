@@ -1,0 +1,160 @@
+IP routing 
+routing-
+-it is process of sending packets from one network to other network(LAN and WAN
+-This process is conducted by L3 device like router and L3 switch.
+-routing helps to add unknown networks in routing table of router.
+
+types of routing
+1.static routing
+-used in small network
+-it is used when network admin knows destination address,gateway address
+-route for destination network created by network admin
+
+conf#ip route destination_network  dest_subnet_mask   Dest_gateway
+R1
+conf#ip route 172.16.0.0 255.255.0.0 180.0.0.2
+
+R2
+conf#ip route 10.0.0.0 255.0.0.0 180.0.0.1
+
+
+
+2.dynamic routing
+-used in large network
+-in this network admin does not know dest network address,gateway address
+-it takes support of routing protocol which gives information about dest and gateway
+-routing protocols are responsible to create path for destination.
+
+There are two types of routing protocols
+
+1.interior routing protocol
+2.exterior routing protocol
+
+Interior routing protocol
+
+3 types-
+
+1.distance vector---includes RIP(routing information protocol)
+
+2.Link state---includes OSPF(open shortest path first)
+
+3.Hybrid----EIGRP(enhanced interior gateway routing protocol)
+
+
+Exterior routing protocols--
+BGP(border gateway protocol)
+ 
+
+Metrics in router
+-----------------
+
+Metrics represent group of parameters used by routing protocol to find out best path
+
+1.hop count---less no of hop count in path,provides best way for dest
+2.bandwidth(Mbps)---path with more bandwidth is best path
+3.delay-----less delay in path to reach to destination is best way
+4.load-----path with less load/traffic is best way
+5.cost----maintainance cost of path.It is less for best path
+6.Reliability----provides most trustable path
+0-non reliable
+255-relible 
+
+Rip-hop count
+eigrp-composite metric---delay,bandwidth,reliabilty,load
+ospf-cost(bandwidth)
+
+AD -Administrative distance
+
+Low AD value provides best/trustable routing protocol
+AD value is used by router when multiple routing methods are configured on it.
+
+protocol                          AD value
+ 
+directly connected port 		0
+static					1
+rip					120
+eigrp					90
+ospf					110
+bgp internal				200
+bgp external				20
+unrechable				255
+
+router---rip,eigrp         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.Hybrid-----includes EIGRP(enhanced interior gateway routing protocol)
+
+Exterior routing protocol-
+
+BGP-border gateway protocol
+
+IS-IS-intersystem-intersystem
+
+AD-administrative distance
+it provides most trustable protocol to router to route packets
+router use protocol with lowest AD value.It is used when multiple routing protocols  configured in router
+
+
+directly connected-0
+static-1
+rip-120
+ospf-110
+eigrp-90
+bgp external-20
+bgp internal-200
+
+
+
+Metrics-its set of parameters used by routing protocol to find out best path
+
+following are the parameters
+
+1.hop count-no of jumps taken by route to reach to destination.path with less hop count is called as best path 
+2.delay-calculated in miliseconds,microseconds,nanoseconds
+path will less delay is called as best path
+3.bandwidth-calculated in Mbps,Gbps.Path with more bandwidth is called as best path
+4.cost-It does not have any unit.it represent maintainance cost to repair that route.Path with less hop count called as best path
+5.reliability-it defines accuracy in path.number 0 will not provide realibilty and number 255 provides high realibilty
+
+

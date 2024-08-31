@@ -1,0 +1,30 @@
+
+HSRP
+
+Hot standby redundancy protocol
+
+-it is used to configure failover of router
+-it creats standby group of min 2 and max 4 routers in one company's IT infra
+-this standby group has ip address of same network which monitors health of all routers in group
+-one router with highest priority elect as active router.
+remaining all routers are called as standby routers
+-standby router will work when active router fail.
+
+R2
+
+config#int fa0/0
+#standby 1  ip 10.0.0.30
+#standby 1  priority 200
+
+#exit
+
+
+R3
+config#int fa0/0
+config#standby 1 ip 10.0.0.30
+       standby 1 priority 100
+#exit
+
+
+
+pc gw===10.0.0.30
